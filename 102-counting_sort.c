@@ -18,23 +18,24 @@ void init_arr_zero(int *array, int size)
  *
  * @array: array to get max value from
  * @size: size of the array
+ * Return: max num
  */
 int get_max_num(int *array, size_t size)
 {	size_t j;
 	int k = array[0];
 
-        for(j = 1; j < size; j++)
-        {
-                if (array[j] > k)
-                {
-                        k = array[j];
-                }
+	for (j = 1; j < size; j++)
+	{
+		if (array[j] > k)
+		{
+			k = array[j];
+		}
 	}
-	return k;
+	return (k);
 }
 
 /**
- * counting_sort - function that sorts an array of integers in ascending 
+ * counting_sort - function that sorts an array of integers in ascending
  * order using the Counting sort algorithm
  * @array: array to be sorted
  * @size: size of array
@@ -48,10 +49,10 @@ void counting_sort(int *array, size_t size)
 
 	int i;
 	int k = get_max_num(array, size);
-	
+
 	countarr = malloc(sizeof(int) * (k + 1));
 	if (countarr == NULL)
-        	return;
+		return;
 	init_arr_zero(countarr, k + 1);
 
 	for (j = 0; j < size; j++)
@@ -63,13 +64,13 @@ void counting_sort(int *array, size_t size)
 		countarr[i] = countarr[i] + countarr[i - 1];
 	}
 	print_array(countarr, k + 1);
-	sortedarr = malloc(sizeof(int)* size);
-        if (sortedarr == NULL)
-                return;
-        init_arr_zero(sortedarr, size);
+	sortedarr = malloc(sizeof(int) * size);
+	if (sortedarr == NULL)
+		return;
+	init_arr_zero(sortedarr, size);
 	for (j = (size - 1); j < size; j--)
 	{
-		countarr[array[j]] --;
+		countarr[array[j]]--;
 		sortedarr[countarr[array[j]]] = array[j];
 
 	}
