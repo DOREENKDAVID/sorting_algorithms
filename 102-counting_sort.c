@@ -22,6 +22,10 @@ void init_arr_zero(int *array, int size)
  */
 int get_max_num(int *array, size_t size)
 {	size_t j;
+
+	if (size < 2)
+		return(0);
+
 	int k = array[0];
 
 	for (j = 1; j < size; j++)
