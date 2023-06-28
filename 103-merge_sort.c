@@ -27,25 +27,29 @@ void merge(int *leftarr, int *rightarr, size_t left_size, size_t right_size,
 	while (leftindex < left_size && rightindex < right_size)
 	{
 		if (leftarr[leftindex] <= rightarr[rightindex])
+		{
 			array[sortindex] = leftarr[leftindex];
 			leftindex++;
-
-		else
 		}
+		else
+		{
 			array[sortindex] = rightarr[rightindex];
 			rightindex++;
 		}
 		sortindex++;
 	}
 	while (leftindex < left_size)
+	{
 		array[sortindex] = leftarr[leftindex];
 		leftindex++;
 		sortindex++;
-
+	}
 	while (rightindex < right_size)
+	{
 		array[sortindex] = rightarr[rightindex];
 		rightindex++;
 		sortindex++;
+	}
 
 	printf("[Done]: ");
 	for (i = 0; i < sortindex; i++)
