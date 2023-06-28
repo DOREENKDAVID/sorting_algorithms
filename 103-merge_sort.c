@@ -11,10 +11,7 @@
 void merge(int *leftarr, int *rightarr, size_t left_size, size_t right_size,
 		int *array)
 {
-	size_t leftindex = 0;
-	size_t rightindex = 0;
-	size_t sortindex = 0;
-	size_t i;
+	size_t leftindex = 0, rightindex = 0, sortindex = 0, i;
 
 	printf("Merging...\n");
 	printf("[left]: ");
@@ -30,29 +27,26 @@ void merge(int *leftarr, int *rightarr, size_t left_size, size_t right_size,
 	while (leftindex < left_size && rightindex < right_size)
 	{
 		if (leftarr[leftindex] <= rightarr[rightindex])
-		{
 			array[sortindex] = leftarr[leftindex];
 			leftindex++;
-		}
+
 		else
-		{
+		}
 			array[sortindex] = rightarr[rightindex];
 			rightindex++;
 		}
 		sortindex++;
 	}
 	while (leftindex < left_size)
-	{
 		array[sortindex] = leftarr[leftindex];
 		leftindex++;
 		sortindex++;
-	}
+
 	while (rightindex < right_size)
-	{
 		array[sortindex] = rightarr[rightindex];
 		rightindex++;
 		sortindex++;
-	}
+
 	printf("[Done]: ");
 	for (i = 0; i < sortindex; i++)
 		printf("%d ", array[i]);
@@ -93,7 +87,7 @@ void merge_sort_helper(int *array, size_t start, size_t end, int *temparr)
 	merge(leftarr, rightarr, left_size, right_size, &array[start]);
 }
 /**
- * merge_sort - sorts an array of integers in ascending order using the merge sort algorithm
+ * merge_sort - sorts an array of integers in using merge sort algorithm
  * @array: the array to be sorted
  * @size: the size of the array
  */
@@ -114,6 +108,5 @@ void merge_sort(int *array, size_t size)
 		temparr[i] = array[i];
 
 	merge_sort_helper(array, 0, size, temparr);
-
 	free(temparr);
 }
