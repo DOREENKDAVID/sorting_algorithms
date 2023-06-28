@@ -57,7 +57,6 @@ void merge(int *leftarr, int *rightarr, size_t left_size, size_t right_size,
 	for (i = 0; i < sortindex; i++)
 		printf("%d ", array[i]);
 	printf("\n");
-	print_array(array, left_size + right_size);
 }
 /**
  * merge_sort_helper - performs merge sort recursively on the array
@@ -91,23 +90,7 @@ void merge_sort_helper(int *array, size_t start, size_t end, int *temparr)
 	for (i = 0; i < right_size; i++)
 		rightarr[i] = array[midindex + i];
 
-	printf("Merging...\n");
-
-	printf("[left]: ");
-	for (i = 0; i < left_size; i++)
-		printf("%d ", leftarr[i]);
-	printf("\n");
-
-	printf("[right]: ");
-	for (i = 0; i < right_size; i++)
-		printf("%d ", rightarr[i]);
-	printf("\n");
 	merge(leftarr, rightarr, left_size, right_size, &array[start]);
-
-	printf("[Done]: ");
-	for (i = start; i < end; i++)
-		printf("%d ", array[i]);
-	printf("\n");
 }
 /**
  * merge_sort - sorts an array of integers in ascending order using the merge sort algorithm
